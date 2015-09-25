@@ -10,12 +10,24 @@
 
     <link href="{{ ASSET_PATH }}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
+    {% if page.css-file %}
+      {% for file in page.css-file %}
+        <link href="{{ file }}" rel="stylesheet"/>
+      {% endfor %}
+      {% endif %}
+      
     <!--[if lt IE 9]>
       <script src="{{ ASSET_PATH }}/resources/respond/Respond.min.js"></script>
     <![endif]-->
 
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+      
+{% if page.script-file %}
+  {% for file in page.script-file %}
+    <script src="{{ file }}"></script>
+  {% endfor %}
+{% endif %}
 
   </head>
 
@@ -59,5 +71,12 @@
     {% include JB/analytics %}
     <script src="{{ ASSET_PATH }}/resources/jquery/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/resources/bootstrap/js/bootstrap.min.js"></script>
+    
+      
+{% if page.script %}
+  <script type="text/javascript">
+    {{ page.script }}
+  </script>
+{% endif %}
   </body>
 </html>

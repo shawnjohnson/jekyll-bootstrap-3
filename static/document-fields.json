@@ -1,0 +1,139 @@
+{
+	"fields": 
+	{
+		"abstract": 
+		{
+			"description": "The detailed description of a document.",
+			"type": "string"
+		},
+
+		"agencyAcronym": 
+		{
+			"description": "An abbreviation of the agency name.",
+				"could_be": "EPA",
+			"type": "string"
+		},
+
+		"agencyName": 
+		{
+			"description": "Full name of the Federal Agency.",
+			"type": "string"
+		},
+
+		"allowLateComment": 
+		{
+			"type": "boolean",
+			"description": "Some agencies will accept comments after the due date."
+		},
+
+		"attachmentCount": 
+		{
+			"description": "Number of attachments associated with a document.",
+			"type": "string"
+		},
+
+		"attachments": 
+		{
+			"description": "Additional files associated with this document",
+			"type": "array"
+		},
+
+		"cfr": 
+		{
+			"description": "A Code of Federal Regulations (CFR) Citation Number exists for each regulation referring to the rules published in the Federal Register by executive departments and agencies of the Federal Government.",
+			"type": "string"
+		},
+
+		"comment": 
+		{
+			"description": "The text of the submitter's comment.",
+			"type": "string"
+		},
+
+		"commentDueDate": 
+		{
+			"description": "Date and time when the period for the public to comment ends.",
+			"type": "date-time"
+		},
+
+		"commentStartDate": 
+		{
+			"description": "Date and time when the period for the public to comment begins.",
+			"type": "date-time"
+		},
+
+		"docketId": 
+		{
+			"description": "A unique identifier established for a docket.",
+			"type": "string"
+		},
+
+		"docketType": 
+		{
+			"description": "A Docket Type is either Rulemaking or Nonrulemaking. A Rulemaking docket includes the type of regulation that establishes a rule. While a Nonrulemaking docket does not include a rule.",
+			"type": "string"
+		},
+
+		"documentId": 
+		{
+			"description": "A unique identifier established for a document.",
+			"type": "string"
+		},
+
+		"documentStatus": 
+		{
+			"description": "Identifies whether the document is Posted on or Withdrawn from Regulations.gov.",
+			"type": "string"
+		},
+
+		"documentSubtype": 
+		{
+			"description": "A secondary classification of a document.",
+			"type": "string"
+		},
+        "documentType": {
+          "description": "A primary classification of a document.",
+          "type": "string"
+        },
+        "effectiveDate": {
+          "description": "The date, specified in the Federal Register, when a rule takes effect and is enforced.",
+          "type": "date-time"
+        },
+        "federalRegisterNumber": {
+          "description": "The unique identifier of a document from the Federal Register (example FR Doc. E6-540).",
+          "type": "string"
+        },
+        "fileFormats": {
+          "description": "Formats of the document, included as URLs to download from the API",
+          "type": "array"
+        },
+        "openForComment": {
+          "description": "The document is open for Comment. This value is recalculated daily based on the comment end date. If allowLateComment is true, then the comment remains open indefinitely.",
+          "type": "boolean"
+        },
+        "pageCount": {
+          "description": "The number of pages in the document.",
+          "type": "integer"
+        },
+        "postedDate": {
+          "description": "The date a document was posted to Regulations.gov and made available for public view and comment.",
+          "type": "date-time"
+        },
+        "receivedDate": {
+          "description": "For a comment submitted through Regulations.gov, this marks the date a comment is submitted by the commenter. ",
+          "type": "date-time"
+        },
+        "rin": {
+          "description": "The Regulation Identifier Number (RIN) assigned to each regulation which allows it to be cross-referenced with the Regulatory Agenda.",
+          "type": "string"
+        },
+        "startEndPage": {
+          "description": "The first and last page numbers of the document.",
+          "type": "string"
+        },
+        "title": {
+          "description": "The formal title of the document.",
+          "type": "string"
+        }
+	}
+}

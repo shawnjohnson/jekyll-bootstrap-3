@@ -1,0 +1,23 @@
+---
+---
+
+{
+	"apiVersion": "3.0",
+	"swaggerVersion": "1.2",
+{% if site.github %}
+	"basePath": "{{ site.github.url }}/api-docs/",
+{% else %}
+    "basePath": "http://localhost:4000/api-docs/",
+{% endif %}
+	"apis": 
+	[
+		{
+			"path": "documents.json",
+			"description": "Operations about Documents"
+		},
+		{
+			"path": "dockets.json",
+			"description": "Operations about Dockets"
+		}
+	]
+}

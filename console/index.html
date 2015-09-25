@@ -1,0 +1,64 @@
+---
+layout: page
+title: "API Console"
+description: ""
+group: navigation
+
+script-file: 
+   - '/console/lib/shred.bundle.js'
+   - '/console/lib/jquery-1.8.0.min.js' 
+   - '/console/lib/jquery.slideto.min.js' 
+   - '/console/lib/jquery.wiggle.min.js' 
+   - '/console/lib/jquery.ba-bbq.min.js' 
+   - '/console/lib/handlebars-1.0.0.js' 
+   - '/console/lib/underscore-min.js' 
+   - '/console/lib/backbone-min.js' 
+   - '/console/lib/swagger.js' 
+   - '/console/swagger-ui.js' 
+   - '/console/lib/highlight.7.3.pack.js'
+
+css-file:
+    - '/console/css/highlight.default.css'
+    - '/console/css/screen.css'
+
+---
+{% include JB/setup %}
+    <script type="text/javascript">
+      $(function () {
+        window.swaggerUi = new SwaggerUi({
+        url: "{{ site.baseurl }}/api-docs.json",
+        dom_id: "swagger-ui-container",
+        supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+        onFailure: function(data) {
+          if(console) {
+            console.log("Unable to Load SwaggerUI");
+            console.log(data);
+          }
+        },
+        docExpansion: "list"
+      });
+
+      $('#input_apiKey').change(function() {
+        var key = $('#input_apiKey')[0].value;
+        console.log("key: " + key);
+        if(key && key.trim() != "") {
+          console.log("added key " + key);
+          window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
+        }
+      })
+      window.swaggerUi.load();
+    });
+    </script>
+
+        <section class="main-content" role="main">
+          <div id="message-bar" class="swagger-ui-wrap">
+          </div>
+
+          <span class="anchor" id="swagger-ui-offset-fix"> </span>
+          <div id="swagger-ui-container" class="swagger-ui-wrap">
+          </div>
+
+          <h5 id='ready_to_dive_deeper'>Ready to dive deeper?</h5>
+
+          <p>You can find detailed descriptions of each type of modeled data, including each field in the <a href="{{site.baseurl}}/fields">Field References</a>.</p>
+        </section>
